@@ -81,7 +81,7 @@ const T = {
 const dog = {x:90,target:90,hop:0,wag:7,pet:0,chew:0,bark:0,jump:0,blink:0,nextBlink:2,moving:false};
 const items=[], parts=[], petals=[];
 let started=false, play=false, spawnT=1, score=0, happy=0, level=1, t=0, last=0;
-let muted=false, sayLock=0, lastPet=0, lastPetSay=0, lastSay=0, petalT=0;
+let paused=false, muted=false, sayLock=0, lastPet=0, lastPetSay=0, lastSay=0, petalT=0;
 
 /* ---------- audio ---------- */
 let ac=null;
@@ -401,7 +401,7 @@ function draw(){
 function frame(ts){
   if(!last) last=ts;
   const dt=Math.min(.05,(ts-last)/1000); last=ts;
-  update(dt); draw();
+  if(!paused){ update(dt); draw(); }
   requestAnimationFrame(frame);
 }
 
@@ -450,6 +450,9 @@ $('bBark').addEventListener('click',()=>{ audioInit(); bark(); });
 $('mute').addEventListener('click',e=>{
   muted=!muted; e.currentTarget.textContent=muted?'SOM OFF':'SOM ON';
 });
+
+/* API para outros modulos (aventura) */
+window.LuckAPI={ tone, audioInit, isMuted:()=>muted, setPaused:v=>{ paused=!!v; last=0; } };
 
 /* expose for testing */
 window.__luck={dog,items,spawn,SFX,get state(){return {score,happy,level,play,started};}};

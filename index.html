@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <title>Luck's Arcade</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,35 +18,78 @@
     <button id="mute" aria-label="Ligar ou desligar o som">SOM ON</button>
   </header>
 
-  <div class="hud">
-    <div class="cell"><b>ÂNIMO</b><div class="bar"><i id="bar"></i></div></div>
-    <div class="cell"><b>PONTOS</b><div class="v" id="score">0000</div></div>
-    <div class="cell"><b>NÍVEL</b><div class="v" id="lvl">1</div></div>
-  </div>
+  <nav class="tabs" aria-label="Modos de jogo">
+    <button class="tab on" id="tabPlaza">PRAÇA</button>
+    <button class="tab" id="tabAdv">AVENTURA</button>
+  </nav>
 
-  <div class="pad">
-    <div class="stage" id="stage">
-      <canvas id="cv" width="180" height="216" aria-label="Luck em pixel art, sentado e abanando o rabo"></canvas>
-      <div class="scan"></div>
-      <div class="start" id="start">
-        <div class="big">LUCK'S<br>ARCADE</div>
-        <div class="sub">O Luck passou aqui pra te fazer companhia.</div>
-        <div class="go">&gt; TOQUE PRA COMEÇAR &lt;</div>
+  <!-- ===================== PRAÇA ===================== -->
+  <section id="viewPlaza">
+    <div class="hud">
+      <div class="cell"><b>ÂNIMO</b><div class="bar"><i id="bar"></i></div></div>
+      <div class="cell"><b>PONTOS</b><div class="v" id="score">0000</div></div>
+      <div class="cell"><b>NÍVEL</b><div class="v" id="lvl">1</div></div>
+    </div>
+
+    <div class="pad">
+      <div class="stage" id="stage">
+        <canvas id="cv" width="180" height="216" aria-label="Luck em pixel art, sentado e abanando o rabo"></canvas>
+        <div class="scan"></div>
+        <div class="start" id="start">
+          <div class="big">LUCK'S<br>ARCADE</div>
+          <div class="sub">O Luck passou aqui pra te fazer companhia.</div>
+          <div class="go">&gt; TOQUE PRA COMEÇAR &lt;</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="dlg"><div class="who">LUCK</div><span id="txt"></span></div>
+    <div class="dlg"><div class="who">LUCK</div><span id="txt"></span></div>
 
-  <div class="btns">
-    <button id="bPet">CARINHO</button>
-    <button id="bTreat">PETISCO</button>
-    <button id="bPlay">JOGAR</button>
-    <button id="bBark">LATIR</button>
-  </div>
-  <footer>feito pelo Vinical<br>dica: arrasta o dedo no Luck pra fazer cafuné</footer>
+    <div class="btns">
+      <button id="bPet">CARINHO</button>
+      <button id="bTreat">PETISCO</button>
+      <button id="bPlay">JOGAR</button>
+      <button id="bBark">LATIR</button>
+    </div>
+  </section>
+
+  <!-- ===================== AVENTURA ===================== -->
+  <section id="viewAdv" hidden>
+    <div class="hud">
+      <div class="cell"><b>ROSAS</b><div class="v" id="aRoses">00/00</div></div>
+      <div class="cell"><b>PEDRAS</b><div class="v" id="aGems">0/0</div></div>
+      <div class="cell"><b>CAMINHO</b><div class="bar"><i id="aBar"></i></div></div>
+    </div>
+
+    <div class="stage wide" id="advStage">
+      <canvas id="cv2" width="216" height="128" aria-label="Fase de plataforma: Mari e Luck atravessando a praça"></canvas>
+      <div class="scan"></div>
+      <div class="start" id="advStart">
+        <div class="big">AVENTURA</div>
+        <div class="sub">Pegue as rosas brancas, pule os obstáculos e chegue na roda-gigante.<br><br>Setas/WASD + espaço, ou os botões abaixo.</div>
+        <div class="go">&gt; TOQUE PRA COMEÇAR &lt;</div>
+      </div>
+      <div class="start" id="advWin" style="display:none">
+        <div class="big">FASE<br>COMPLETA</div>
+        <div class="sub" id="advWinTxt"></div>
+        <div class="winbtns">
+          <button id="advAgain">JOGAR DE NOVO</button>
+          <button id="advBack">VOLTAR PRA PRAÇA</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ctrl">
+      <button id="cLeft" aria-label="Esquerda">&lt;</button>
+      <button id="cRight" aria-label="Direita">&gt;</button>
+      <button id="cJump" class="jump">PULAR</button>
+    </div>
+  </section>
+
+  <footer>feito pelo Vinical<br>dica: na praça, arrasta o dedo no Luck pra fazer cafuné</footer>
 </div>
 
 <script src="script.js"></script>
+<script src="adventure.js"></script>
 </body>
 </html>

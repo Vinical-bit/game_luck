@@ -54,3 +54,26 @@ footer{text-align:center;font-size:7px;color:var(--dim);line-height:1.8;margin-t
 
 .pad{display:flex;justify-content:center}
 @media (max-width:360px){h1{font-size:11px}.btns button{font-size:9px}}
+
+/* ---------- abas / aventura ---------- */
+[hidden]{display:none !important}
+section{display:flex;flex-direction:column;gap:10px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tab{font:inherit;font-size:9px;color:var(--dim);background:var(--panel);border:3px solid #4a2e86;padding:10px 6px;cursor:pointer;
+  box-shadow:3px 3px 0 #000}
+.tab.on{color:#2a1750;background:#fff;border-color:#fff}
+.stage.wide{width:100%}
+.stage.wide canvas{aspect-ratio:216/128}
+.ctrl{display:grid;grid-template-columns:1fr 1fr 2fr;gap:10px;user-select:none;-webkit-user-select:none;touch-action:none}
+.ctrl button{font:inherit;font-size:14px;color:#fff;padding:20px 6px;cursor:pointer;background:#5b2ba0;border:3px solid #fff;
+  box-shadow:0 4px 0 #2a1155,4px 4px 0 #000;touch-action:none;-webkit-user-select:none;user-select:none}
+.ctrl button.jump{font-size:11px;background:#c24a7a;box-shadow:0 4px 0 #6d1f43,4px 4px 0 #000}
+.ctrl button.hold,.ctrl button:active{transform:translateY(3px);box-shadow:0 1px 0 #2a1155,4px 4px 0 #000;filter:brightness(1.15)}
+.winbtns{display:flex;flex-direction:column;gap:10px;width:80%}
+.winbtns button{font:inherit;font-size:9px;color:#fff;padding:12px 6px;cursor:pointer;background:#5b2ba0;border:3px solid #fff;box-shadow:3px 3px 0 #000}
+#viewAdv .start .sub{line-height:1.7}
+#viewAdv .start{background:rgba(21,12,43,.8);gap:12px}
+#advWin .big{font-size:16px;line-height:1.4}
+#advWin .sub{font-size:8px}
+.winbtns{gap:8px;width:84%}
+.winbtns button{padding:9px 4px;font-size:8px}

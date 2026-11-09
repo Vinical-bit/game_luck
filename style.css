@@ -77,3 +77,22 @@ section{display:flex;flex-direction:column;gap:10px}
 #advWin .sub{font-size:8px}
 .winbtns{gap:8px;width:84%}
 .winbtns button{padding:9px 4px;font-size:8px}
+
+.advbar{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:9px;color:var(--gold)}
+#menuBtn{font:inherit;font-size:8px;color:#fff;background:var(--panel);border:3px solid var(--line);padding:7px 8px;cursor:pointer;box-shadow:3px 3px 0 #000}
+.lvls{display:flex;flex-direction:column;gap:8px;width:88%}
+.lvl{font:inherit;color:#fff;background:#5b2ba0;border:3px solid #fff;box-shadow:3px 3px 0 #000;padding:9px 6px;cursor:pointer;display:flex;flex-direction:column;gap:6px;align-items:center}
+.lvl span{font-size:9px}
+.lvl small{font-size:6px;color:#d9c6ff;line-height:1.5}
+.linkbtn{font:inherit;font-size:6px;color:var(--dim);background:none;border:none;text-decoration:underline;cursor:pointer;padding:4px;margin-top:2px}
+#viewAdv .start .sub{font-size:7px}
+#advStart{gap:8px}
+
+/* menu de fases compacto: cabe nos 3 niveis sem cortar */
+#advStart{justify-content:center;overflow-y:auto;padding:8px 0;gap:6px}
+#advStart .big{font-size:15px;line-height:1.2}
+#advStart .sub{font-size:6px;line-height:1.5;width:90%}
+.lvls{gap:5px;width:90%}
+.lvl{flex-direction:row;justify-content:space-between;gap:6px;padding:7px 8px}
+.lvl span{font-size:8px}
+.lvl small{font-size:6px;white-space:nowrap}

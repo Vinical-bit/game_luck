@@ -61,20 +61,23 @@
       <div class="cell"><b>CAMINHO</b><div class="bar"><i id="aBar"></i></div></div>
     </div>
 
+    <div class="advbar"><span id="aLevel">FASE 1</span><button id="menuBtn">FASES</button></div>
+
     <div class="stage wide" id="advStage">
       <canvas id="cv2" width="216" height="128" aria-label="Fase de plataforma: Mari e Luck atravessando a praça"></canvas>
       <div class="scan"></div>
       <div class="start" id="advStart">
         <div class="big">AVENTURA</div>
-        <div class="sub">Pegue as rosas brancas, pule os obstáculos e chegue na roda-gigante.<br><br>Setas/WASD + espaço, ou os botões abaixo.</div>
-        <div class="go">&gt; TOQUE PRA COMEÇAR &lt;</div>
+        <div class="sub">Pegue as rosas brancas, pule os obstáculos e chegue na roda-gigante. Escolha uma fase:</div>
+        <div class="lvls" id="lvlList"></div>
       </div>
       <div class="start" id="advWin" style="display:none">
         <div class="big">FASE<br>COMPLETA</div>
         <div class="sub" id="advWinTxt"></div>
         <div class="winbtns">
+          <button id="advNext">PRÓXIMA FASE</button>
           <button id="advAgain">JOGAR DE NOVO</button>
-          <button id="advBack">VOLTAR PRA PRAÇA</button>
+          <button id="advMenu">ESCOLHER FASE</button>
         </div>
       </div>
     </div>
@@ -86,7 +89,7 @@
     </div>
   </section>
 
-  <footer>feito pelo Vinical<br>dica: na praça, arrasta o dedo no Luck pra fazer cafuné</footer>
+  <footer>feito pelo Vinical<br>dica: na praça, arrasta o dedo no Luck pra fazer cafuné<br>seu progresso fica salvo neste aparelho<br><button id="resetSave" class="linkbtn">apagar progresso salvo</button></footer>
 </div>
 
 <script src="script.js"></script>

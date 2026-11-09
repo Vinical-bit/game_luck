@@ -83,6 +83,13 @@ const items=[], parts=[], petals=[];
 let started=false, play=false, spawnT=1, score=0, happy=0, level=1, t=0, last=0;
 let paused=false, muted=false, sayLock=0, lastPet=0, lastPetSay=0, lastSay=0, petalT=0;
 
+/* ---------- progresso salvo ---------- */
+const SAVE_KEY = 'luck-arcade-v1';
+function readSave(){ try{ return JSON.parse(localStorage.getItem(SAVE_KEY)) || {}; }catch(e){ return {}; } }
+function writeSave(o){ try{ localStorage.setItem(SAVE_KEY, JSON.stringify(o)); }catch(e){} }
+{ const sv = readSave().plaza;
+  if(sv){ score = sv.score|0; happy = Math.min(99, sv.happy|0); level = Math.max(1, Math.min(99, sv.level|0 || 1)); } }
+
 /* ---------- audio ---------- */
 let ac=null;
 function audioInit(){
@@ -120,6 +127,7 @@ function hud(){
   elBar.style.width=Math.min(100,happy)+'%';
   elScore.textContent=String(score).padStart(4,'0');
   elLvl.textContent=level;
+  const sv=readSave(); sv.plaza={score,happy,level}; writeSave(sv);
 }
 let typer=null;
 function say(text,force){
@@ -452,7 +460,7 @@ $('mute').addEventListener('click',e=>{
 });
 
 /* API para outros modulos (aventura) */
-window.LuckAPI={ tone, audioInit, isMuted:()=>muted, setPaused:v=>{ paused=!!v; last=0; } };
+window.LuckAPI={ getSave:readSave, setSave:writeSave, tone, audioInit, isMuted:()=>muted, setPaused:v=>{ paused=!!v; last=0; } };
 
 /* expose for testing */
 window.__luck={dog,items,spawn,SFX,get state(){return {score,happy,level,play,started};}};
